@@ -47,6 +47,15 @@ class PenjualanController extends Controller
         }
 
         try {
+            $kendaraan_info = Kendaraan::find($request->kendaraan);
+            $last_stok = $kendaraan_info->stok;
+            $new_stok = $last_stok - 1;
+            if($last_stok < 1)
+            {
+                return redirect()->route('penjualan.index')->with('error', 'Stok Kosong');
+            }
+
+
             $add = new Penjualan();
             $add->nama      = $request->nama;
             $add->email      = $request->email;
@@ -54,6 +63,10 @@ class PenjualanController extends Controller
             $add->kendaraan_id      = $request->kendaraan;
             $save = $add->save();
             if ($save) {
+
+
+                $kendaraan_info->stok=$new_stok;
+                $kendaraan_info->save();
                 return redirect()->route('penjualan.index')->with('success', 'Success');
             }
             return redirect()->route('penjualan.index')->with('error', 'Failed');
