@@ -1,0 +1,44 @@
+body,html {
+    font-family: 'Montserrat','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-size:12px;
+}
+
+[class*=sidebar-dark] .brand-link {
+    border-bottom: none;
+    color: rgba(255,255,255,.8);
+}
+
+[class*=sidebar-dark] .user-panel {
+    border-bottom: none;
+}
+
+.user-panel img {
+    height: auto;
+    width: 3.5rem;
+}
+
+.brand-link {
+    display: block;
+    font-size: 1.25rem;
+    line-height: 3.5;
+    padding: .8125rem .5rem;
+    transition: width .3s ease-in-out;
+    white-space: nowrap;
+}
+
+.brand-link .brand-image {
+    float: left;
+    line-height: .8;
+    margin-left: .8rem;
+    margin-right: .5rem;
+    margin-top: -3px;
+    max-height: 60px;
+    width: auto;
+}
+
+.nav-sidebar>.nav-item {
+    margin-bottom: 5px;
+}
